@@ -1,29 +1,23 @@
 <template>
-    <div class="container column is-three-fifths">
+     <div class="container column is-three-fifths">
+        <Post/>
         <PostInput/>
         <div>
             <hr class="sparator"/>
         </div>
         <div>
-            <Post v-for="i in 100" :key="i"  :allow_reply="true"/>
+            <Post v-for="i in 100" :key="i"/>
         </div>
     </div>
 </template>
-
 <script>
 import Post from "@/components/Post"
 import PostInput from "@/components/PostInput"
 export default{
-    name:"home",
+    name:"post.detail",
     components:{
         Post,
         PostInput
     }
 }
 </script>
-
-<style>
-    .sparator{
-        margin-top:45px;
-    }
-</style>
