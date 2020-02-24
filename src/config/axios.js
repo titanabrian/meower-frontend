@@ -36,7 +36,7 @@ instance.interceptors.response.use(
       let response = error.response;
       if (response.status === 401) {
         try{
-            router.push("/login");
+            window.location.replace("/login");
         }catch (err){
 
         }

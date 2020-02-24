@@ -5,7 +5,7 @@
       <hr class="sparator" />
     </div>
     <div>
-      <Post v-for="message in allMessages" :text="message.text" :time="message.created_at" :user="message.user" :key="message._id"  :_id="message._id" :allow_reply="true" />
+      <Post v-for="message in allMessages" :post="message" :key="message._id"   :allow_reply="true" />
     </div>
   </div>
 </template>

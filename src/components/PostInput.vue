@@ -29,10 +29,11 @@ export default {
     ...mapActions(["addMessage"]),
     post(){
       if(this.parent!=null){
-        this.addMessage({text:this.text,parent:this.parent});
+        this.addMessage({text:this.text,parent:this.parent})
       }else{
         this.addMessage({text:this.text});
       }
+      this.text=""
     }
   }
 };
