@@ -7,7 +7,6 @@ const state = {
 }
 
 const actions={
-
     async fetchMessages({commit}){
         axios.get("message")
         .then(response=>{
