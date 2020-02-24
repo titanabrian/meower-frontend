@@ -2,29 +2,21 @@
   <div class="card">
     <header class="card-header">
       <p class="card-header-title">
-        @titanabrian
+        @{{this.user.username}}
       </p>
-      <!-- <a href="#" class="card-header-icon" aria-label="more options">
-            <span class="icon">
-                <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-            </a> -->
     </header>
     <div class="card-content">
       <div class="content justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-        iaculis mauris.
-        <a href="#">@bulmaio</a>. <a href="#">#css</a>
-        <a href="#">#responsive</a>
-        <br />
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        {{this.text}}
+        <br/>
+        <a>{{Date(this.time)}}</a>
       </div>
     </div>
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Up</a>
-      <a href="#" class="card-footer-item">Down</a>
+      <a href="#" class="card-footer-item">100 Likes</a>
+      <a href="#" class="card-footer-item">200 Dislikes</a>
       <a
-        href="/post/usds-asd-xa"
+        :href="'/post/'+this._id"
         class="card-footer-item"
         v-if="this.allow_reply"
         >Reply</a
@@ -35,7 +27,7 @@
 <script>
 export default {
   name: "post",
-  props: ["allow_reply"]
+  props: ["allow_reply","text","time","likes","dislikes","replies","user","_id"]
 };
 </script>
 

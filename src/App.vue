@@ -2,9 +2,10 @@
   <div id="app">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <!-- <a class="navbar-item" href="https://bulma.io">
+
+        <a class="navbar-item" href="https://bulma.io">
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-        </a> -->
+        </a>
 
         <a
           role="button"
@@ -23,10 +24,10 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="column">
-              <h5 v-if="this.$route.name != 'login'">Hello, titanabrian !</h5>
+              <h5 v-if="this.$route.name != 'login'">Hello, {{this.user.username}} !</h5>
             </div>
             <div class="buttons">
-              <a class="button is-primary" v-if="this.$route.name != 'login'">
+              <a class="button is-primary" @click="signout()" v-if="this.$route.name != 'login'">
                 <strong>Sign out</strong>
               </a>
             </div>
@@ -54,6 +55,30 @@
     />
   </div>
 </template>
+
+<script>
+import jwt from "jsonwebtoken";
+export default{
+  name:"app",
+  data(){
+    return {
+      user:{}
+    }
+  },
+  methods:{
+    signout(){
+      this.$cookies.remove("jwt");
+      this.$router.push("/login");
+    }
+  },
+  mounted(){
+    let cookie=this.$cookies.get("jwt");
+    if(cookie){
+      this.user=jwt.decode(cookie.access_token);
+    }
+  }
+}
+</script>
 
 <style>
 #app {

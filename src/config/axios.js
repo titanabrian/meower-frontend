@@ -12,13 +12,13 @@ let headers = {
     Authorization: ""
 };
 
-axios.create({
-    baseURL: process.env.VUE_APP_SERVICE_HOST + "api",
+let instance=axios.create({
+    baseURL: process.env.VUE_APP_SERVICE_HOST + "/api/",
     headers: headers
 });
 
-axios.interceptors.request.use((config)=>{
-    let jwt = cookie.get('access_token');
+instance.interceptors.request.use((config)=>{
+    let jwt = cookie.get('jwt');
     if(jwt){ 
       let authorization = "Bearer"+" "+jwt.access_token;
       config.headers.Authorization=authorization;
@@ -28,7 +28,7 @@ axios.interceptors.request.use((config)=>{
 
 })
 
-axios.interceptors.response.use(
+instance.interceptors.response.use(
     response => {
       return response;
     },
@@ -63,4 +63,4 @@ axios.interceptors.response.use(
     }
 );
 
-export default axios;
+export default instance;

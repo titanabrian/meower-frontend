@@ -33,7 +33,7 @@ export default {
         if(res.status===200){
           let data = res.data
           context.$cookies.set("jwt",{access_token:data.access_token,refresh_token:data.refresh_token})
-          context.$router.push("/")
+          window.location.replace("/")
         }
       })
       .catch(err=>{
