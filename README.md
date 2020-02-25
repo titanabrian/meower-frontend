@@ -35,7 +35,6 @@ Install dependencies
 ```
 $ npm install
 ```
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running The Frontend
 Before you run the frontend, make sure that your backend service already running
