@@ -13,7 +13,7 @@ The things that you need to install before running this application
 
 ### Installing The Frontend
 
-You have to clone to this project **this repository for backend**
+You have to clone to this project
 
 ```
 $ git clone https://github.com/titanabrian/meower-frontend.git
