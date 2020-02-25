@@ -24,7 +24,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="column">
-              <h5 v-if="this.$route.name != 'login'">Hello, {{this.user.username}} !</h5>
+              <h5 v-if="this.$route.name != 'login'">Hello, {{this.currentUser.username}} !</h5>
             </div>
             <div class="buttons">
               <a class="button is-primary" @click="signout()" v-if="this.$route.name != 'login'">
@@ -57,12 +57,13 @@
 </template>
 
 <script>
-import jwt from "jsonwebtoken";
+/* eslint-disable */
+import {mapGetters,mapActions} from "vuex"; 
 export default{
   name:"app",
   data(){
     return {
-      user:{}
+      ...mapActions(["fetchCurrentUser"])
     }
   },
   methods:{
@@ -71,11 +72,9 @@ export default{
       this.$router.push("/login");
     }
   },
+  computed: mapGetters(["currentUser"]),
   mounted(){
-    let cookie=this.$cookies.get("jwt");
-    if(cookie){
-      this.user=jwt.decode(cookie.access_token);
-    }
+    this.fetchCurrentUser();
   }
 }
 </script>

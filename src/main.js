@@ -15,6 +15,23 @@ Vue.use(cookies);
 
 Vue.config.productionTip = false;
 
+router.beforeEach(async (to, from, next) => {
+  if (!to.meta.middleware) {
+      return next()
+  }
+  const middleware = to.meta.middleware
+
+  const context = {
+      to,
+      from,
+      next,
+      store
+  }
+  return await middleware[0]({
+      ...context
+  })
+})
+
 Vue.prototype.$http = axios;
 
 new Vue({

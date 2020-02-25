@@ -6,7 +6,7 @@ import PostDetails from "@/views/PostDetails.vue";
 import Login from "@/views/Login.vue";
 
 //Midleware
-import AuthMiddleware from "@/middleware/authmiddleware";
+import isLogin from "@/middleware/authmiddleware";
 
 Vue.use(VueRouter);
 
@@ -17,14 +17,19 @@ const routes = [
     component: Home,
     meta:{
       middleware:[
-        AuthMiddleware
+        isLogin,
       ]
     }
   },
   {
     path: "/post/:id",
     name: "post.detail",
-    component: PostDetails
+    component: PostDetails,
+    meta:{
+      middleware:[
+        isLogin,
+      ]
+    }
   },
   {
     path: "/login",

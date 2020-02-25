@@ -29,7 +29,7 @@ const actions={
 
 
     async fetchDetail({commit},params){
-        axios.get("message?id="+params)
+        await axios.get("message?id="+params)
         .then(response=>{
             commit("setDetails",response.data);
         })
