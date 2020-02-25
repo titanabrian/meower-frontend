@@ -4,13 +4,20 @@ import VueRouter from "vue-router";
 import Home from "@/views/Home.vue";
 import PostDetails from "@/views/PostDetails.vue";
 import Login from "@/views/Login.vue";
+import NotFound from "@/views/404.vue";
 
 //Midleware
 import isLogin from "@/middleware/authmiddleware";
 
+
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path:"*",
+    name:"not_found",
+    component:NotFound
+  },
   {
     path: "/",
     name: "home",

@@ -32,6 +32,12 @@ router.beforeEach(async (to, from, next) => {
   })
 })
 
+Vue.directive('focus', {
+  inserted: function (el) {
+      el.getElementsByTagName("input")[0].focus()
+  }
+})
+
 Vue.prototype.$http = axios;
 
 new Vue({

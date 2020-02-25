@@ -2,9 +2,12 @@
   <div id="app">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-
+        
         <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+          <img :src="require('@/assets/logo.png')" height="70">
+           <span class="meower-title">
+             MEOWER
+           </span>
         </a>
 
         <a
@@ -24,10 +27,10 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="column">
-              <h5 v-if="this.$route.name != 'login'">Hello, {{this.currentUser.username}} !</h5>
+              <h5 v-if="this.$route.name != 'login' && this.$route.name!='not_found'">Hello, {{this.currentUser.username}} !</h5>
             </div>
             <div class="buttons">
-              <a class="button is-primary" @click="signout()" v-if="this.$route.name != 'login'">
+              <a class="button is-primary" @click="signout()" v-if="this.$route.name != 'login' && this.$route.name!='not_found'">
                 <strong>Sign out</strong>
               </a>
             </div>
@@ -86,5 +89,9 @@ export default{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.meower-title{
+  margin-left:10px;
+  font-weight: bold;
 }
 </style>

@@ -8,13 +8,15 @@
         role="alert">
         {{this.error}}
     </b-notification>
-    <b-field label="Username">
-      <b-input v-model="username"></b-input>
-    </b-field>
-    <b-field label="Password">
-      <b-input type="password" v-model="password"></b-input>
-    </b-field>
-    <b-button class="btn-post" type="is-primary" @click="login()">Login</b-button>
+      <form action="" @submit.prevent="login()">
+        <b-field label="Username">
+          <b-input v-model="username" v-focus></b-input>
+        </b-field>
+        <b-field label="Password">
+          <b-input type="password" password-reveal v-model="password"></b-input>
+        </b-field>
+        <input class="button button is-primary" type="submit" @click="login()" value="Login">
+      </form>
   </div>
 </template>
 <script>
@@ -63,3 +65,16 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .submit{
+    cursor: pointer;
+    justify-content: center;
+    padding: calc(.375em - 1px) .75em;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #7957d5;
+    border-color: transparent;
+    color: #fff;
+  }
+</style>

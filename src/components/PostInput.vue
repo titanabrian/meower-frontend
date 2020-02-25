@@ -5,7 +5,7 @@
         maxlength="200"
         type="textarea"
         v-model="text"
-        placeholder="What's happening?"
+        placeholder="Meow meow ?"
       ></b-input>
     </b-field>
     <b-button class="btn-post" type="is-primary" @click="post()">Post</b-button>
