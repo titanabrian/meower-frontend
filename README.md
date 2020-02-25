@@ -1,24 +1,58 @@
-# frontent-xendit-challenges
+# Meower Frontend Module
 
-## Project setup
+**Meower** is an application build in Vue Js and Express Js. This application is a dead simple social media that allow you to share what's in your mind
+
+## Getting Started
+
+You can run this application on your server by clone to [https://github.com/titanabrian/meower-backend.git](https://github.com/titanabrian/meower-backend.git) for the backend service and [https://github.com/titanabrian/meower-frontend.git](https://github.com/titanabrian/meower-frontend.git) for the frontend
+
+### Prerequisites
+
+The things that you need to install before running this application
+*   run the backend service here the backend service [documentation](https://github.com/titanabrian/meower-backend.git)
+
+### Installing The Frontend
+
+You have to clone to this project **this repository for backend**
+
 ```
-npm install
+$ git clone https://github.com/titanabrian/meower-frontend.git
 ```
 
-### Compiles and hot-reloads for development
+Move to your application directory
+
 ```
-npm run serve
+$ cd meower-frontend
+```
+Create your own .env file that allows you to manage your application environment variable. You can copy from .env-example and change the value
+
+```
+VUE_APP_SERVICE_HOST=${YOUR_BACKEND_HOST_AND_PORT}
 ```
 
-### Compiles and minifies for production
+Install dependencies
+
 ```
-npm run build
+$ npm install
+```
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running The Frontend
+Before you run the frontend, make sure that your backend service already running
+
+### Development Environment
+Run folowing command
+```
+$ npm run serve
 ```
 
-### Lints and fixes files
+### Production Environment
+First you have to build your frontend application by performing the following command
 ```
-npm run lint
+$ npm run build
 ```
+Your built-in application will be located on **dist** directory
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Authors
+
+* **titanabrian**
